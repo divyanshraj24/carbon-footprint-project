@@ -1,0 +1,29 @@
+{
+  "name": "ecomind-ai",
+  "version": "1.0.0",
+  "description": "Production-ready AI-powered carbon footprint assistant",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"yarn workspace backend dev\" \"yarn workspace frontend dev\"",
+    "build": "yarn workspace backend build && yarn workspace frontend build",
+    "test": "concurrently \"yarn workspace backend test\" \"yarn workspace frontend test\"",
+    "test:e2e": "yarn workspace frontend test:e2e",
+    "lint": "concurrently \"yarn workspace backend lint\" \"yarn workspace frontend lint\"",
+    "type-check": "concurrently \"yarn workspace backend type-check\" \"yarn workspace frontend type-check\"",
+    "format": "concurrently \"yarn workspace backend format\" \"yarn workspace frontend format\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
